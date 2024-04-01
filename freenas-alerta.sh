@@ -49,7 +49,8 @@ do
 	level=${LEVEL[$(jq -r '.level' <<< ${alerts})]}
 	formatted="$(jq -r '.formatted' <<< ${alerts} | jq -sR)"
 	dismissed="$(jq -r '.dismissed' <<< ${alerts})"
-
+ 
+	service=""
 	if [[ ${dismissed} = "true" ]]; then
 		status="closed"
 		level="cleared"
